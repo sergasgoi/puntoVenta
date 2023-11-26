@@ -1,0 +1,51 @@
+<h2>Hola {{usuario}} <a type="submit" class="btn btn-primary" onclick="return confirm('¿Esta seguro que desea salir?')"
+        href='/salir'>Salir</a>
+    <a type="submit" class="btn btn-primary" href='/inicio'>Volver</a>
+</h2>
+
+<div class="busc row justify-content-center">
+    <div class="column1">
+        <input type="text" class="form-control" id="searchTerm" placeholder="Buscar" onkeyup="doSearch()">
+    </div>
+    <div class="column2">
+        <a type="submit" class="btn btn-primary" href='/agregar'>Agregar Producto</a>
+    </div>
+</div>
+
+<div class="scroll">
+
+    {{#if prod}}
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Productos</th>
+                <th scope="col">Precio</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        {{#each prod}}
+        <tbody>
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nombre}}</td>
+                <td>${{precio}}</td>
+                <th>
+                    <a href="/editar/{{id}}"><img src="/images/editar.png"></a>
+                    <a onclick="return confirm('¿Estas seguro que quieres borrar el producto?')" href="/borrarproducto/{{id}}"><img
+                            src="/images/borrar.png"></a>
+                </th>
+            </tr>
+
+        </tbody>
+
+        {{/each}}
+
+    </table>
+    {{else}}
+    <h2>No Existe ningun Producto</h2>
+    {{/if}}
+
+
+
+</div>

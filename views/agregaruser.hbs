@@ -1,0 +1,26 @@
+<h2>Hola {{usuario}} <a type="submit" class="btn btn-primary" onclick="return confirm('¿Esta seguro que desea salir?')"
+                href='/salir'>Salir</a> <a type="submit" class="btn btn-primary" href='/usuarios'>Volver</a>
+</h2>
+<div class="agregar">
+        <form action="/agregaruser" method="post">
+
+                <br>
+                <input maxlength="20" class="form-control" type="text" name="user" id="inputUser"
+                        placeholder="Coloque el nombre del Usuario" />
+                <br>
+                <input maxlength="20" class="form-control" type="number" name="pass" id="inputPass"
+                        placeholder="Coloque la contraseña" />
+                <br>
+
+                <button class="btn btn-primary" type="submit">Agregar</button>
+
+
+
+
+        </form>
+        <br>
+        {{#if error}}
+        <p>{{message}}</p>
+        {{/if}}
+
+</div>

@@ -1,0 +1,26 @@
+<h2>Hola {{usuario}} <a type="submit" class="btn btn-primary" onclick="return confirm('¿Esta seguro que desea salir?')"
+                href='/salir'>Salir</a> <a type="submit" class="btn btn-primary" href='/productos'>Volver</a>
+</h2>
+<div class="agregar">
+        <form action="/agregar" method="post">
+
+                <br>
+                <input maxlength="20" class="form-control" type="text" name="name" id="inputName"
+                        placeholder="Coloque el nombre del Producto" />
+                <br>
+                <input maxlength="10" class="form-control" type="number" name="numero" id="inputPrecio"
+                        placeholder="Coloque precio del Producto" />
+                <br>
+
+                <button class="btn btn-primary" type="submit">Agregar</button>
+
+
+
+
+        </form>
+        <br>
+        {{#if error}}
+        <p>{{message}}</p>
+        {{/if}}
+
+</div>

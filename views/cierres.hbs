@@ -1,0 +1,47 @@
+<h2>Hola {{usuario}} <a type="submit" class="btn btn-primary" onclick="return confirm('¿Esta seguro que desea salir?')"
+        href='/salir'>Salir</a> <a type="submit" class="btn btn-primary" href='/inicio'>Volver</a>
+</h2>
+
+<div class="busc row justify-content-center">
+    <input style="width: 500px;" type="text" class="form-control" id="searchTerm" placeholder="Buscar" onkeyup="doSearch()">
+</div>
+
+<div class="scroll">
+
+    {{#if cierres}}
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Hora de Inicio</th>
+                <th scope="col">Hora de Finalizado</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        {{#each cierres}}
+        <tbody>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{horai}}</td>
+                {{#if condicion}}
+                <td>{{horafn}}</td>
+                {{else}}
+                <td>Turno Sin Finalizar</td>
+                {{/if}}
+                <td>${{total}}</td>
+                <td><a href="/registros/{{id}}"><img src="/images/lupa.png"></a></td>
+            </tr>
+
+        </tbody>
+        {{/each}}
+        {{else}}
+        <h2>No Existe ningun cierre</h2>
+        {{/if}}
+
+    </table>
+
+
+
+</div>

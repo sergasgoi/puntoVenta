@@ -1,0 +1,46 @@
+<h2>Hola {{usuario}} <a type="submit" class="btn btn-primary" onclick="return confirm('¿Esta seguro que desea salir?')"
+        href='/salir'>Salir</a> <a type="submit" class="btn btn-primary" href='/cierres'>Volver</a>
+</h2>
+
+
+<div class="busc row justify-content-center">
+    <div class="column1">
+        <input type="text" class="form-control" id="searchTerm" placeholder="Buscar" onkeyup="doSearch()">
+    </div>
+</div>
+
+<div class="scroll">
+
+    {{#if registros}}
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Hora</th>
+            </tr>
+        </thead>
+        {{#each registros}}
+        <tbody>
+            <tr>
+                <td>{{id}}</td>
+                <td>{{producto}}</td>
+                <td>{{cantidad}}</td>
+                <td>${{precio}}</td>
+                <td>{{time}}</td>
+            </tr>
+
+        </tbody>
+
+        {{/each}}
+
+    </table>
+    {{else}}
+    <h2>No Existe ningun Registro</h2>
+    {{/if}}
+
+
+
+</div>

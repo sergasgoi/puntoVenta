@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+    <form class="login" action="/" method="post">
+        <h1>Login</h1>
+        <br>
+        <div class="form-floating mb-3">
+            <input type="text" name="usuario" class="form-control" id="inputUser" placeholder="Usuario">
+            <label for="inputUser">Usuario</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+            <label for="inputPassword">Password</label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+    {{#if error}}
+    <br>
+    <br>
+    <p>Usuario y/o Contraseña Incorrecto/s</p>
+    {{/if}}
+    <br>
+    
+</div>

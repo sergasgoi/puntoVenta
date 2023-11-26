@@ -1,0 +1,142 @@
+html,
+body {
+  min-height: 1024px;
+  height: auto;
+  background: white;
+
+}
+
+.col {
+
+  margin-top: 30px;
+  padding: 50px;
+  height: auto;
+  border-radius: 15px;
+  background-color: #fbfbfb;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.col2 {
+
+  text-align: center;
+  margin-top: 20px;
+  height: 50px;
+  border-radius: 15px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  background-color: #fbfbfb;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#searchTerm {
+
+  text-align: center;
+}
+
+#table {
+
+  text-align: center;
+
+}
+
+.noSearch {
+  text-align: left;
+}
+
+.col-5 {
+  display: block;
+  height: 400px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.scroll {
+  display: block;
+  height: 400px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.login {
+  width: 400px;
+  padding: auto;
+}
+
+.producto {
+  width: 30px;
+  height: 30px;
+  border: 1px grey solid;
+  border-radius: 5px;
+}
+
+/*   */
+
+
+
+#carritoDeCompras {
+
+  border-top: 1px solid #ccc;
+}
+
+#carritoDeCompras div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid #ccc;
+}
+
+#carritoDeCompras p {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+#carritoDeCompras button {
+  height: 40px;
+  width: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+/*        */
+
+.agregar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.busc {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pr {
+
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.column1 {
+  flex: 0 0 auto;
+  width: 40%;
+}
+
+.column2 {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+
+.editar {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
