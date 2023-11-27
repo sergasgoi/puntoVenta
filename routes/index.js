@@ -26,24 +26,31 @@ router.get('/salir', async function (req, res, next) {
 })
 
 router.get('/empezar', async function (req, res, next) {
-
-    if (req.session.id_usuario) {
-        await consultas.agregarTurno(req.session.id_usuario, req.session.nombre);
-        const turn = await consultas.getTurno();
-        req.session.turno = turn.id;
-        res.redirect('/inicio')
-    } else {
-        res.redirect('/inicio')
+    try {
+        if (req.session.id_usuario) {
+            await consultas.agregarTurno(req.session.id_usuario, req.session.nombre);
+            const turn = await consultas.getTurno();
+            req.session.turno = turn.id;
+            res.redirect('/inicio')
+        } else {
+            res.redirect('/inicio')
+        }
+    } catch (error) {
+        console.log(error);
     }
 })
 
 router.get('/finalizar', async function (req, res, next) {
-    if (req.session.id_usuario) {
-        await consultas.updateTurnos(req.session.turno);
-        req.session.turno = 0;
-        res.redirect('/inicio')
-    } else {
-        res.redirect('/inicio')
+    try {
+        if (req.session.id_usuario) {
+            await consultas.updateTurnos(req.session.turno);
+            req.session.turno = 0;
+            res.redirect('/inicio')
+        } else {
+            res.redirect('/inicio')
+        }
+    } catch (error) {
+        console.log(error);
     }
 
 })
@@ -111,25 +118,27 @@ router.get("/borrarproducto/:id", async function (req, res, next) {
 
 
 router.post('/', async (req, res, next) => {
+    try {
+        var usuario = req.body.usuario;
+        var password = req.body.password;
+        var data = await consultas.getUser(usuario, password);
 
-    var usuario = req.body.usuario;
-    var password = req.body.password;
-    var data = await consultas.getUser(usuario, password);
-
-    if (data != undefined) {
-        req.session.id_usuario = data.id;
-        req.session.nombre = data.usuario;
-        req.session.admin = data.admin
-        req.session.turno = 0
-        req.session.total = 0
-        res.redirect('/inicio');
-    } else {
-        res.render('login', {
-            layout: 'layout',
-            error: true
-        });
+        if (data != undefined) {
+            req.session.id_usuario = data.id;
+            req.session.nombre = data.usuario;
+            req.session.admin = data.admin
+            req.session.turno = 0
+            req.session.total = 0
+            res.redirect('/inicio');
+        } else {
+            res.render('login', {
+                layout: 'layout',
+                error: true
+            });
+        }
+    } catch (error) {
+        console.log(error);
     }
-
 });
 
 
