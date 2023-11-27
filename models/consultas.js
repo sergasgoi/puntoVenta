@@ -61,7 +61,7 @@ async function getTurnosAdm() {
 }
 
 async function updateTurnos(id) {
-    var query = 'update turnos set horafin=now(), condicion=true where id=?';
+    var query = 'update turnos set horafin=NOW(), condicion=true where id=?';
     var datos = await pool.query(query, [id]);
     return datos;
 }
