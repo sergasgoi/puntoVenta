@@ -111,27 +111,25 @@ router.get("/borrarproducto/:id", async function (req, res, next) {
 
 
 router.post('/', async (req, res, next) => {
-    try {
-        var usuario = req.body.usuario;
-        var password = req.body.password;
-        var data = await consultas.getUser(usuario, password);
 
-        if (data != undefined) {
-            req.session.id_usuario = data.id;
-            req.session.nombre = data.usuario;
-            req.session.admin = data.admin
-            req.session.turno = 0
-            req.session.total = 0
-            res.redirect('/inicio');
-        } else {
-            res.render('login', {
-                layout: 'layout',
-                error: true
-            });
-        }
-    } catch (error) {
-        console.log(error);
+    var usuario = req.body.usuario;
+    var password = req.body.password;
+    var data = await consultas.getUser(usuario, password);
+
+    if (data != undefined) {
+        req.session.id_usuario = data.id;
+        req.session.nombre = data.usuario;
+        req.session.admin = data.admin
+        req.session.turno = 0
+        req.session.total = 0
+        res.redirect('/inicio');
+    } else {
+        res.render('login', {
+            layout: 'layout',
+            error: true
+        });
     }
+
 });
 
 
