@@ -31,7 +31,7 @@ async function agregarRegistros(array) {
 
 async function agregarTurno(id_usuario, name) {
 
-    var query = 'insert into turnos(iduser, name , horain, horafin) values(?, ?, NOW(), 0)';
+    var query = 'insert into turnos(iduser, name , horain, horafin, total, condicion) values(?, ?, NOW(), 0, 0, 0)';
     var datos = await pool.query(query, [id_usuario, name]);
     return datos;
 }
