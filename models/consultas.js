@@ -46,7 +46,7 @@ async function getTurno() {
 
 async function getTurnos(iduser) {
 
-    var query = 'SELECT *, DATE_FORMAT(horain, "%d/%m/%y : %T") AS horai, DATE_FORMAT(horafin, "%d/%m/%y : %T") AS horafn FROM turnos where iduser=?';
+    var query = 'SELECT *, DATE_FORMAT(horain, "%d/%m/%y : %T") AS horai, DATE_FORMAT(horafin, "%d/%m/%y : %T") AS horafn FROM turnos where iduser=? ORDER BY id DESC';
     var datos = await pool.query(query, [iduser]);
     return datos;
 
@@ -54,7 +54,7 @@ async function getTurnos(iduser) {
 
 async function getTurnosAdm() {
 
-    var query = 'SELECT *, DATE_FORMAT(horain, "%d/%m/%y : %T") AS horai, DATE_FORMAT(horafin, "%d/%m/%y : %T") AS horafn FROM turnos';
+    var query = 'SELECT *, DATE_FORMAT(horain, "%d/%m/%y : %T") AS horai, DATE_FORMAT(horafin, "%d/%m/%y : %T") AS horafn FROM turnos ORDER BY id DESC';
     var datos = await pool.query(query);
     return datos;
 
